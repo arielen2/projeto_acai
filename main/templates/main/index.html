@@ -1,15 +1,356 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
 <html>
 <head>
-    <title>Formulario de Pedido de Sorvete</title>
+    <title>Seu Título Aqui</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'caminho-do-seu-arquivo.css' %}">
+    <img src="{% static 'img/prod-frutas-14.png' %}" alt="Imagem de Frutas" width="100%" height="250PX">
 </head>
-</body>
-    <h1>Formulario de Pedido de Sorvete</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Enviar Pedido">
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h1>!Faça seu Pedido!</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <h1>Acompanhamentos:</h1>
+                    <div id="menuForm">
+                        <label>
+                            Leite
+                            <button class="small-button" type="button" onclick="alterarContador('Leite', 1)">+</button>
+                            <span id="contadorLeite">0</span>
+                            <button class="small-button" type="button" onclick="alterarContador('Leite', -1)">-</button>
+                        </label>
+                        <label>
+                            Granola
+                            <button class="small-button" type="button" onclick="alterarContador('Granola', 1)">+</button>
+                            <span id="contadorGranola">0</span>
+                            <button class="small-button" type="button" onclick="alterarContador('Granola', -1)">-</button>
+                        </label>
+                        <label>
+                            Chocoball
+                            <button class="small-button" type="button" onclick="alterarContador('Chocoball', 1)">+</button>
+                            <span id="contadorChocoball">0</span>
+                            <button class="small-button" type="button" onclick="alterarContador('Chocoball', -1)">-</button>
+                        </label>
+                        <label>
+                              Farinha Amendoim
+                            <button class="small-button" type="button" onclick="alterarContador('FarinhaAmendoim', 1)">+</button>
+                            <span id="contadorFarinhaAmendoim">0</span>
+                            <button class="small-button" type="button" onclick="alterarContador('FarinhaAmendoim', -1)">-</button>
+                        </label>
+                        
+                        
+                        <label>
+                            Paçoca
+                            <button class="small-button" type="button" onclick="alterarContador('Paçoca', 1)">+</button>
+                            <span id="contadorPaçoca">0</span>
+                            <button class="small-button" type="button" onclick="alterarContador('Paçoca', -1)">-</button>
+                        </label>
+                            <label>
+                                Tubetes
+                                <button class="small-button" type="button" onclick="alterarContador('Tubetes', 1)">+</button>
+                                <span id="contadorTubetes">0</span>
+                                <button class="small-button" type="button" onclick="alterarContador('Tubetes', -1)">-</button>
+                            </label>
+                            <label>
+                                Paçoca Quebrada
+                                <button class="small-button" type="button" onclick="alterarContador('PaçocaQuebrada', 1)">+</button>
+                                <span id="contadorPaçocaQuebrada">0</span>
+                                <button class="small-button" type="button" onclick="alterarContador('PaçocaQuebrada', -1)">-</button>
+                            </label>
+                            <label>
+                                Sucrilhos
+                                <button class="small-button" type="button" onclick="alterarContador('Sucrilhos', 1)">+</button>
+                                <span id="contadorSucrilhos">0</span>
+                                <button class="small-button" type="button" onclick="alterarContador('Sucrilhos', -1)">-</button>
+                            </label>
+                            <label>
+                                Farinha De Biscoito
+                                <button class="small-button" type="button" onclick="alterarContador('FarinhaDeBiscoito', 1)">+</button>
+                                <span id="contadorFarinhaDeBiscoito">0</span>
+                                <button class="small-button" type="button" onclick="alterarContador('FarinhaDeBiscoito', -1)">-</button>
+                            </label>
+                            
+                        <!-- Adicione os demais acompanhamentos com seus identificadores de contador -->
+                    </div>
 
-    </form>
+                
+
+                    <h4>Frutas:</h4>
+                    <div id="menuForm">
+                        <br>
+                        <label>
+                            Manga
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Manga', 1)">+</button>
+                            <span id="contadorManga">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Manga', -1)">-</button>
+                        </label>
+                        <label>
+                            Morango
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Morango', 1)">+</button>
+                            <span id="contadorMorango">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Morango', -1)">-</button>
+                        </label>
+                        <label>
+                            Abacaxi
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Abacaxi', 1)">+</button>
+                            <span id="contadorAbacaxi">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Abacaxi', -1)">-</button>
+                        </label>
+                        <label>
+                            Banana 
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Banana', 1)">+</button>
+                            <span id="contadorBanana">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Banana', -1)">-</button>
+                        </label>
+                        <label>
+                            Uva
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Uva', 1)">+</button>
+                            <span id="contadorUva">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorFrutas('Uva', -1)">-</button>
+                        </label>
+                        <!-- Restante das frutas... -->
+                    </div>
+
+                    
+                    <h3>extras:</h3>
+                    <div id="menuForm">
+                      
+                        <label>
+                            Jujuba(+R$1,00)
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('jujuba', 1)">+</button>
+                            <span id="contadorJujuba">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('jujuba', -1)">-</button>
+                        </label>
+                        <label>
+                            Amendoim Grão(+R$1,00)
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('AmendoimGrão', 1)">+</button>
+                            <span id="contadorAmendoimGrão">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('AmendoimGrão', -1)">-</button>
+                        </label>
+                        <label>
+                            Marshimallow(+R$1,00)
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('Marshimallow', 1)">+</button>
+                            <span id="contadorMarshimallow">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('Marshimallow', -1)">-</button>
+                        </label>
+                    
+                        <label>
+                            Ovomaltine(+R$1,00)
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('Ovomaltine', 1)">+</button>
+                            <span id="contadorOvomaltine">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('Ovomaltine', -1)">-</button>
+                        </label>
+                        
+                        <label>
+                            Geleia Morango(+R$1,00)
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('GeleiaMorango', 1)">+</button>
+                            <span id="contadorGeleiaMorango">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('GeleiaMorango', -1)">-</button>
+                        </label>
+                        
+                        <label>
+                            M&M(+R$1,00)
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('M&M', 1)">+</button>
+                            <span id="contadorM&M">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('M&M', -1)">-</button>
+                        </label>
+                        <label>
+                            Biscoito Oreo(+R$1,00)
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('BiscoitoOreo', 1)">+</button>
+                            <span id="contadorBiscoitoOreo">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('BiscoitoOreo', -1)">-</button>
+                        </label>
+                        <label>
+                            Gotas Chocolate(+R$1,00)
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('GotasChocolate', 1)">+</button>
+                            <span id="contadorGotasChocolate">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('GotasChocolate', -1)">-</button>
+                        </label>
+                    </div>
+
+
+                    <h5>Calda:</h5>
+                    <div id="menuForm">
+                        <label>
+                            Leite Condensado
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('LeiteCondensado', 1)">+</button>
+                            <span id="contadorLeiteCondensado">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('LeiteCondesado', -1)">-</button>
+                        </label>
+                        <label>
+                            Morango
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('CaldaMorango', 1)">+</button>
+                            <span id="contadorCaldaMorango">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('CaldaMorango', -1)">-</button>
+                        </label>
+                        <label>
+                            Chocolate
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('Chocolate', 1)">+</button>
+                            <span id="contadorChocolate">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('Chocolate', -1)">-</button>
+                        </label>
+                        <label>
+                            Caramelo
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('Caramelo', 1)">+</button>
+                            <span id="contadorCaramelo">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('Caramelo', -1)">-</button>
+                        </label>
+                        <label>
+                            Caramelo Banana
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('CarameloBanana', 1)">+</button>
+                            <span id="contadorCarameloBanana">0</span>
+                            <button class="small-button" type="button" onclick="alterarContadorExtras('CarameloBanana', -1)">-</button>
+                        </label>
+
+                    </div>
+                    
+
+                    <input type="submit" value="Enviar Pedido">
+                </form>
+                
+                <h2>Acompanhamentos Selecionados:</h2>
+                <ul id="acompanhamentosSelecionados">
+                </ul>
+                <p id="totalPrice">Total: R$ 0,00</p>
+
+                <script>
+                    const acompanhamentos = {
+                        'FarinhaAmendoim': 0,
+                        'Leite': 0,
+                        'Granola': 0,
+                        'FarinhaDeBiscoito': 0,
+                        'Chocoball': 0,
+                        'Sucrilhos': 0,
+                        'Paçoca': 0,
+                        'Tubetes': 0,
+                        'PaçocaQuebrada': 0,
+                        // Adicione os demais acompanhamentos aqui
+                    };
+
+                    const acompanhamentosExtras = {
+                        'jujuba': 0,
+                        'M&M': 0,
+                        'Marshimallow': 0,
+                        'GeleiaMorango': 0,
+                        'GotasChocolate': 0,
+                        'BiscoitoOreo': 0,
+                        'Xerem': 0,
+                        'AmendoimGrão': 0,
+                        'Ovomaltine': 0,
+                        // Adicione os demais acompanhamentos extras aqui
+                    };
+
+                    const acompanhamentosFrutas = {
+                        'Manga': 0,
+                        'Morango': 0,
+                        'Abacaxi': 0,
+                        'Banana': 0,
+                        'Uva': 0,
+                        // Adicione as demais frutas aqui
+                    };
+                    const acompanhamentosCalda = {
+                        'CaldaMorango': 0,
+                        'Chocolate': 0,
+                        'Caramelo': 0,
+                        'CarameloBanana': 0,
+                        'LeiteCondesado': 0,
+                        // Adicione as demais caldas aqui
+                    };
+                    
+                    function alterarContador(acompanhamento, quantidade) {
+                        acompanhamentos[acompanhamento] += quantidade;
+                        const contadorElement = document.getElementById(`contador${primeiraLetraMaiuscula(acompanhamento)}`);
+                        contadorElement.textContent = acompanhamentos[acompanhamento];
+                        atualizarAcompanhamentosSelecionados();
+                    }
+                    function alterarContadorExtras(acompanhamento, quantidade) {
+                        acompanhamentosExtras[acompanhamento] += quantidade;
+                        const contadorElement = document.getElementById(`contador${primeiraLetraMaiuscula(acompanhamento)}`);
+                        contadorElement.textContent = acompanhamentosExtras[acompanhamento];
+                        atualizarAcompanhamentosSelecionados();
+                    }
+
+                    function alterarContadorFrutas(acompanhamento, quantidade) {
+                        acompanhamentosFrutas[acompanhamento] += quantidade;
+                        const contadorElement = document.getElementById(`contador${primeiraLetraMaiuscula(acompanhamento)}`);
+                        contadorElement.textContent = acompanhamentosFrutas[acompanhamento];
+                        atualizarAcompanhamentosSelecionados();
+                    }
+                    function alterarContadorCalda(acompanhamento, quantidade) {
+                        acompanhamentosCalda[acompanhamento] += quantidade;
+                        const contadorElement = document.getElementById(`contador${primeiraLetraMaiuscula(acompanhamento)}`);
+                        contadorElement.textContent = acompanhamentosCalda[acompanhamento];
+                        atualizarAcompanhamentosSelecionados();
+                    }
+
+                    function atualizarAcompanhamentosSelecionados() {
+                        const listaAcompanhamentos = document.getElementById('acompanhamentosSelecionados');
+                        listaAcompanhamentos.innerHTML = '';
+
+                        let totalPrice = 0;
+
+                        for (const [acompanhamento, quantidade] of Object.entries(acompanhamentos)) {
+                            if (quantidade > 0) {
+                                const listItem = document.createElement('li');
+                                listItem.textContent = `${acompanhamento}: ${quantidade} unidade(s)`;
+                                listaAcompanhamentos.appendChild(listItem);
+                            }
+                        }
+
+                        for (const [acompanhamentoExtra, quantidadeExtra] of Object.entries(acompanhamentosExtras)) {
+                            if (quantidadeExtra > 0) {
+                                const listItem = document.createElement('li');
+                                listItem.textContent = `${acompanhamentoExtra}: ${quantidadeExtra} unidade(s)`;
+                                listaAcompanhamentos.appendChild(listItem);
+                                totalPrice += quantidadeExtra * 1; // Preço de R$1,00 para acompanhamentos extras
+                            }
+                        }
+
+                        for (const [fruta, quantidadeFruta] of Object.entries(acompanhamentosFrutas)) {
+                            if (quantidadeFruta > 0) {
+                                const listItem = document.createElement('li');
+                                listItem.textContent = `${fruta}: ${quantidadeFruta} unidade(s)`;
+                                listaAcompanhamentos.appendChild(listItem);
+                            }
+                        }
+                        for (const [calda, quantidadeCalda] of Object.entries(acompanhamentosCalda)) {
+                            if (quantidadeCalda > 0) {
+                                const listItem = document.createElement('li');
+                                listItem.textContent = `${fruta}: ${quantidadeCalda} unidade(s)`;
+                                listaAcompanhamentos.appendChild(listItem);
+                            }
+                        }
+
+                        const totalPriceElement = document.getElementById('totalPrice');
+                        totalPriceElement.textContent = `Total: R$ ${totalPrice.toFixed(2)}`;
+                    }
+
+                    function primeiraLetraMaiuscula(string) {
+                        return string.charAt(0).toUpperCase() + string.slice(1);
+                    }
+
+                    document.querySelector('form').addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        alert('Formulário enviado com sucesso!');
+                        // Here, you can add code to submit the form data to the server
+                        // using an AJAX request or handle the form submission in another way.
+                    });
+                </script>
+
+                <a class="btn btn-danger" href="/lista" role="button">Ver Lista</a>
+                <a class="btn btn-success" href="/admin" role="button">Administração</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+{% endblock %}

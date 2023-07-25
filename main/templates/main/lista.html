@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table">
+    <thead class="thead-dark">  
+      <tr>
+        <th scope="col">Sabor</th>
+        <th scope="col">Cobertura</th>
+        <th scope="col">Tamanho</th>
+      </tr>
+    </thead>
+    <tbody>
+         {% for querys in query %}
+        <tr> 
+        <td>{{querys.sabor}}</td>
+        <td>{{querys.cobertura}}</td>
+        <td>{{querys.tamanho}}</td>
+      </tr>
+        {%endfor%}
+    </tbody>
+  </table>
+ 
+{% endblock %}

@@ -1,0 +1,100 @@
+/* Estilos gerais da página */
+body {
+    font-family: 'Alice', serif;
+    background-color: #f2e5ff;
+    color: #111010;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos do cabeçalho */
+  h1 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: #5a0d78;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilos do formulário */
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid #9e899b;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #5a0d78;
+  }
+  
+  form input[type="text"],
+  form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  form input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #613287;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #7755a6;
+  }
+  
+  /* Estilos dos botões */
+  .btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 12px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn.btn-danger {
+    background-color: #5cb85c;
+  }
+  
+  .btn.btn-success {
+    background-color: #be310d;
+  }
+  
+  
+  
+  
+  
+  /* Estilização para os botões menores */
+.small-button {
+  font-size: 10px;
+  padding: 5px 8px;
+  margin-left: 8px;
+}
+
